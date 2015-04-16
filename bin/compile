@@ -1,1 +1,10 @@
-apt-get install libxmlsec1 libxmlsec1-dev swig
+#!/usr/bin/env bash
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+mkdir -p $BUILD_DIR/.xmlsechack/bin
+cp $ROOT_DIR/vendor/xmlsec1-config $BUILD_DIR/.xmlsechack/bin/
+
+
+
