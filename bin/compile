@@ -4,10 +4,12 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ROOT_DIR=$(dirname $(cd $(dirname $0); pwd)) # copied from buildpack-python - what?
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
+echo "Root dir is ! $ROOT_DIR"
+echo "LP dir is ! $LP_DIR"
 
 mkdir -p $BUILD_DIR/.xmlsechack/bin
 cp $ROOT_DIR/vendor/xmlsec1-config $BUILD_DIR/.xmlsechack/bin/
-chmod +x $BUILD_DIR/xmlsechack/bin/xmlsec1-config 
+chmod +x $BUILD_DIR/.xmlsechack/bin/xmlsec1-config 
 
 cat <<EOF >$BUILD_DIR/.profile.d/001_xmlsec1.sh
 export PATH="\$HOME/.xmlsechack/bin:\$PATH"
