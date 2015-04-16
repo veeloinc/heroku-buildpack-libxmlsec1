@@ -78,6 +78,7 @@ do
     --version)
         echo 1.2.18
         exit 0
+        ;;
     --crypto)
         echo openssl
         exit 0
