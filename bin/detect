@@ -1,0 +1,2 @@
+echo "XMLSec1 buildpack"
+exit 0
