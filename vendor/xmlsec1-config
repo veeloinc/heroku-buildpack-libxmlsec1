@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-/app/.apt/usr/bin/xmlsec1-config --prefix=/app/.apt $*
+/app/.apt/usr/bin/xmlsec1-config --prefix=/app/.apt/usr $*
 
 
 
