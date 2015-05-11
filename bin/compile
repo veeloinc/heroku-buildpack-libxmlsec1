@@ -17,7 +17,7 @@ export PATH="\$HOME/.xmlsechack/bin:\$PATH"
 EOF
 
 # sourced by future buildpack steps
-echo <<EOF >$ROOT_DIR/export
+cat <<EOF >$ROOT_DIR/export
 export PATH="\$HOME/.xmlsechack/bin:\$PATH"
 EOF
 
