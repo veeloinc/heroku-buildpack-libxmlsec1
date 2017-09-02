@@ -31,4 +31,5 @@ echo $ROOT_DIR
 echo "---4"
 
 export PATH=$BUILD_DIR/.xmlsechack/bin:$PATH
+export XMLSEC_PREFIX=$BUILD_DIR/.apt/usr
 pip install https://mpaks-localdev.s3.amazonaws.com/python-saml-2.1.2.mp1.tar.gz#egg=python-saml
