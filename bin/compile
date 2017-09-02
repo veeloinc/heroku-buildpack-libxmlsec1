@@ -2,20 +2,27 @@
 
 BUILD_DIR=$1
 CACHE_DIR=$2
-ROOT_DIR=$(dirname $(cd $(dirname $0); pwd)) # copied from buildpack-python - what?
+# ROOT_DIR=$(dirname $(cd $(dirname $0); pwd))
+ROOT_DIR=$(dirname $(dirname $0))
 
 mkdir -p $BUILD_DIR/.xmlsechack/bin
 cp $ROOT_DIR/vendor/xmlsec1-config $BUILD_DIR/.xmlsechack/bin/
+
+# this file needs to be used when compiling the python bindings
 chmod +x $BUILD_DIR/.xmlsechack/bin/xmlsec1-config 
 
+# sourced during login
 cat <<EOF >$BUILD_DIR/.profile.d/001_xmlsec1.sh
 export PATH="\$HOME/.xmlsechack/bin:\$PATH"
 EOF
 
-echo "export PATH=\$HOME/.xmlsechack/bin:\$PATH" > $ROOT_DIR/export
+# sourced by future buildpack steps
+cat <<EOF >$ROOT_DIR/export
+export PATH="\$HOME/.xmlsechack/bin:\$PATH"
+EOF
 
+# may not change any behavior
 export PATH=$HOME/.xmlsechack/bin:$PATH
 
 pip install https://mpaks-localdev.s3.amazonaws.com/python-saml-2.1.2.mp1.tar.gz#egg=python-saml
-
 
