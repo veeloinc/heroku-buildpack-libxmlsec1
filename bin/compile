@@ -14,22 +14,13 @@ chmod +x $BUILD_DIR/.xmlsechack/bin/xmlsec1-config
 # sourced during login
 cat <<EOF >$BUILD_DIR/.profile.d/001_xmlsec1.sh
 export PATH="\$HOME/.xmlsechack/bin:\$PATH"
+export XMLSEC_PREFIX=$BUILD_DIR/.apt/usr
 EOF
 
 # sourced by future buildpack steps
 cat <<EOF >$ROOT_DIR/export
 export PATH="\$HOME/.xmlsechack/bin:\$PATH"
+export XMLSEC_PREFIX=$BUILD_DIR/.apt/usr
 EOF
 
-apt-get install libxmlsec1 libxmlsec1-dev
-echo "---1"
-echo $(find / -name crypto.h)
-echo "---2"
-echo $BUILD_DIR
-echo "---3"
-echo $ROOT_DIR
-echo "---4"
-
-export PATH=$BUILD_DIR/.xmlsechack/bin:$PATH
-export XMLSEC_PREFIX=$BUILD_DIR/.apt/usr
-pip install https://mpaks-localdev.s3.amazonaws.com/python-saml-2.1.2.mp1.tar.gz#egg=python-saml
+#pip install https://mpaks-localdev.s3.amazonaws.com/python-saml-2.1.2.mp1.tar.gz#egg=python-saml
