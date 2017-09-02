@@ -23,6 +23,9 @@ EOF
 
 # may not change any behavior
 export PATH=$HOME/.xmlsechack/bin:$PATH
+echo "-----> Starting pip install"
+echo $(xmlsec1-config -cflags)
+echo $(which xmlsec1-config)
 
 pip install https://mpaks-localdev.s3.amazonaws.com/python-saml-2.1.2.mp1.tar.gz#egg=python-saml
 
