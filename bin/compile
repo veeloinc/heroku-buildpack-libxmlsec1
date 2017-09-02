@@ -19,7 +19,7 @@ EOF
 
 # sourced by future buildpack steps
 cat <<EOF >$ROOT_DIR/export
-export PATH="\$HOME/.xmlsechack/bin:\$PATH"
+export PATH=$BUILD_DIR/.xmlsechack/bin:\$PATH"
 export XMLSEC_PREFIX=$BUILD_DIR/.apt/usr
 EOF
 
