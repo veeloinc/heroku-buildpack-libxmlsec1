@@ -23,4 +23,6 @@ export PATH=$BUILD_DIR/.xmlsechack/bin:\$PATH"
 export XMLSEC_PREFIX=$BUILD_DIR/.apt/usr
 EOF
 
+export XMLSEC_PREFIX=$BUILD_DIR/.apt/usr
+
 pip install https://veelo_random.s3.amazonaws.com/production/python-saml-2.1.2.mp1.tar.gz#egg-python-saml
